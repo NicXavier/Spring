@@ -42,12 +42,12 @@ public class ProductController {
 	return ResponseEntity.ok(repository.findAllByDescriptionContainingIgnoreCase(Description));
 	}
 	
-	@PostMapping
+	@PostMapping("/search")
 	public ResponseEntity<ProductModel> post (@RequestBody ProductModel product){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(product));
 	}
 	
-	@PutMapping
+	@PutMapping("/update")
 	public ResponseEntity<ProductModel> put (@RequestBody ProductModel product){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(product));
 	}

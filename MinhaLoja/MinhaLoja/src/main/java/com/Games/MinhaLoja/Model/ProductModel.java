@@ -27,7 +27,7 @@ public class ProductModel {
 	private String description;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("accessorie")
+	@JsonIgnoreProperties("product")
 	@JoinColumn(name = "category_id") 
 	private CategoryModel category;
 
@@ -55,7 +55,15 @@ public class ProductModel {
 		this.description = description;
 	}
 
-		
+	public CategoryModel getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryModel category) {
+		this.category = category;
+	}
+
+	
 	
 
 }
