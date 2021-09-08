@@ -25,8 +25,8 @@ public class CategoryModel {
 	private Long id;
 
 	@OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("category")
-	private List<ProductModel> product = new ArrayList<>();
+	@JsonIgnoreProperties("{category}")
+	private List<ProductModel> acessories = new ArrayList<>();
 
 	@NotBlank(message = "Insira a descrição do jogo")
 	private String name;
@@ -62,11 +62,11 @@ public class CategoryModel {
 	}
 
 	public List<ProductModel> getProduct() {
-		return product;
+		return acessories;
 	}
 
 	public void setProduct(List<ProductModel> product) {
-		this.product = product;
+		this.acessories = product;
 	}
 
 	public String getName() {

@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -27,9 +28,13 @@ public class ProductModel {
 	private String description;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("product")
+	@JsonIgnoreProperties({"acessories"})
 	@JoinColumn(name = "category_id") 
 	private CategoryModel category;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private UserModel name;
 
 	public Long getId() {
 		return id;
@@ -61,6 +66,14 @@ public class ProductModel {
 
 	public void setCategory(CategoryModel category) {
 		this.category = category;
+	}
+
+	public UserModel getName() {
+		return name;
+	}
+
+	public void setName(UserModel name) {
+		this.name = name;
 	}
 
 	
